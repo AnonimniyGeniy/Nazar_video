@@ -19,5 +19,6 @@ def gen_string(n):
     return ''.join(random.choice(chars) for i in range(n))
 
 
-for i in range(10000):
-    print(gen_string(random.randint(8, 12)), file=open("data.txt", "a"))
+def gen_data(n):
+    for i in range(n):
+        print(gen_string(random.randint(8, 12)), file=open("data.txt", "a"))
