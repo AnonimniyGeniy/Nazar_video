@@ -11,8 +11,9 @@
 
 def bubble_sort(arr, comparator=(lambda x, y: x < y)):
     n = len(arr)
-    for i in range(n):
-        for j in range(0, n - i - 1):
-            if comparator(arr[j], arr[j + 1]):
+    for i in range(n): # Проходим по всем элементам
+        for j in range(0, n - i - 1): # Проходим по элементам от 0 до n - i - 1
+            if not comparator(arr[j], arr[j + 1]): # Если элементы стоят в неправильном порядке
+                # Меняем их местами (со стандартным компаратором это будет arr[j] > arr[j + 1])
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
     return arr
