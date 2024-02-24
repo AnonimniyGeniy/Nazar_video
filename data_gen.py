@@ -21,8 +21,11 @@ def gen_string(n):
 
 
 def gen_data(n):
+    data = []
     for i in range(n):
-        print(gen_string(random.randint(8, 12)), file=open("data.txt", "a"))
+        data.append(gen_string(random.randint(8, 12)))
+        print(data[-1], file=open("data.txt", "a"))
+    write_db(data)
 
 
 def write_db(data):

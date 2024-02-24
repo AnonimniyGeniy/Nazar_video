@@ -2,7 +2,7 @@ import time
 from quick_sort import quick_sort
 from merge_sort import merge_sort
 from bubble_sort import bubble_sort
-from data_gen import gen_data
+from data_gen import read_db
 
 
 # Компаратор который сравнивает в следующем порядке:
@@ -24,8 +24,8 @@ if __name__ == '__main__':
     # Генерируем данные при необходимости
     # gen_data(10000)
 
-    # Считываем данные из файла
-    data = open("data.txt").read().splitlines()
+    # Считываем данные из бд
+    data = read_db()
 
     # Сортируем массивы с помощью трёх алгоритмов
     start = time.time()
