@@ -1,4 +1,5 @@
 import random
+from data_driver import DataDriver
 
 # chars - alphabet + digits + special characters
 chars = ["a", "b", "c", "d", "e", "f", "g", "h",
@@ -22,3 +23,16 @@ def gen_string(n):
 def gen_data(n):
     for i in range(n):
         print(gen_string(random.randint(8, 12)), file=open("data.txt", "a"))
+
+
+def write_db(data):
+    data_driver = DataDriver()
+    for i in range(len(data)):
+        data_driver.insert_data(data[i])
+
+
+def read_db():
+    data_driver = DataDriver()
+    data = data_driver.get_data()
+    data = [i[1] for i in data]
+    return data
