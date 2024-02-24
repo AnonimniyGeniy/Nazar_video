@@ -4,9 +4,20 @@ from merge_sort import merge_sort
 from bubble_sort import bubble_sort
 from data_gen import gen_data
 
-# Компаратор для лексикографического сравнения строк
-def comparator(a, b):
-    return a < b
+
+# Компаратор который сравнивает в следующем порядке:
+# 1) все что начинаются с букв (неважно какой регистр)
+# 2) если первая буква совпадает то смотрим на вторую и тд
+# 3) далее сортируем по юникоду (если начинается со специального символа)
+def comparator(x, y):
+    if x[0].isalpha() and y[0].isalpha():
+        return x.lower() < y.lower()
+    elif x[0].isalpha() and not y[0].isalpha():
+        return True
+    elif not x[0].isalpha() and y[0].isalpha():
+        return False
+    else:
+        return x < y
 
 
 if __name__ == '__main__':
